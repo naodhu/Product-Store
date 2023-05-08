@@ -42,7 +42,7 @@ const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
-      <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+      <Flex h={16} alignItems="center" justifyContent={"space-between"}>
         <IconButton
           size="md"
           icons={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -51,7 +51,7 @@ const Navbar = () => {
         />
         <HStack>
           <Link as={ReactLink} to="/">
-            <Flex alignItems={"center"}>
+            <Flex alignItems="center">
               <Icon as={GiTechnoHeart} w={6} h={6} color="orange.400" />
               <Text fontWeight="extrabold">Product Store</Text>
             </Flex>
@@ -64,7 +64,7 @@ const Navbar = () => {
             ))}
           </HStack>
         </HStack>
-        <Flex alignItems={"center"}>
+        <Flex s={"center"}>
           <NavLink>
             <Icon
               as={colorMode === "light" ? MoonIcon : SunIcon}

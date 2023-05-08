@@ -19,7 +19,7 @@ const ProductsScreen = () => {
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.products);
-  const { loading, errors, products } = productList;
+  const { loading, error, products } = productList;
 
   useEffect(() => {
     dispatch(getProducts());
@@ -38,13 +38,13 @@ const ProductsScreen = () => {
             size="xl"
           />
         </Stack>
-      ) : errors ? (
+      ) : error ? (
         <Alert status="error" w="100%">
           <AlertIcon />
           <AlertTitle>
             sorry, something went wrong. please try again later
           </AlertTitle>
-          <AlertDescription>{errors}</AlertDescription>
+          <AlertDescription>{error}</AlertDescription>
         </Alert>
       ) : (
         products.map((product) => (
