@@ -1,11 +1,19 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+
 import products from "./slices/products";
 import cart from "./slices/cart";
+import user from "./slices/user";
+import order from "./slices/order";
+import admin from "./slices/admin";
 
 const reducer = combineReducers({
-  // Add reducers here
   products,
   cart,
+  user,
+  order,
+  admin,
 });
 
-export default configureStore({ reducer });
+export default configureStore({
+  reducer,
+});
