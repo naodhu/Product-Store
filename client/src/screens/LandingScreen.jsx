@@ -48,7 +48,7 @@ const LandingScreen = () => (
                 color={useColorModeValue("orange.500", "orange.300")}
               />
               <Text fontSize="4xl" fontWeight="bold">
-                Product Store
+                EazyMart
               </Text>
             </Flex>
             <Heading size="xl" fontWeight="normal">

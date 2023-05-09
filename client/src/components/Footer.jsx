@@ -125,7 +125,7 @@ const Footer = () => {
           align="center"
         >
           <Text fontSize="sm" color="subtle">
-            &copy; {new Date().getFullYear()} Product Store, Inc. All rights
+            &copy; {new Date().getFullYear()} EazyMart, Inc. All rights
             reserved.
           </Text>
           <ButtonGroup variant="ghost">

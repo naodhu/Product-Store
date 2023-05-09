@@ -116,7 +116,7 @@ const Navbar = () => {
                 w={6}
                 color={isHovering ? "cyan.400" : "orange.400"}
               />
-              <Text fontWeight="extrabold">Product Store</Text>
+              <Text fontWeight="extrabold">EazyMart</Text>
             </Flex>
           </Link>
           <HStack as="nav" spacing={4} display={{ base: "none", md: "flex" }}>
