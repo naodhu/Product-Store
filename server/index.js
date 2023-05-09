@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-
+dotenv.config();
 import connectDB from "./database.js";
 import express from "express";
 import path from "path";
@@ -9,7 +9,7 @@ import productRoutes from "./routes/productRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 
-dotenv.config();
+
 
 connectDB();
 const app = express();
