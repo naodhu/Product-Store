@@ -9,11 +9,10 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/actions/cartActions";
+import { addCartItem, removeCartItem } from "../redux/actions/cartActions";
 
 const CartItem = ({ cartItem }) => {
-  const { id, image, name, price, qty, stock } = cartItem;
-
+  const { name, image, price, stock, qty, id } = cartItem;
   const dispatch = useDispatch();
 
   return (
@@ -22,7 +21,7 @@ const CartItem = ({ cartItem }) => {
       justify="space-between"
       align="center"
     >
-      <Stack direction="row" spacing="4" width="full">
+      <Stack direction="row" spacing="5" width="full">
         <Image
           rounded="lg"
           w="120px"
@@ -34,7 +33,7 @@ const CartItem = ({ cartItem }) => {
           loading="lazy"
         />
         <Box pt="4">
-          <Stack spacing="0,5">
+          <Stack spacing="0.5">
             <Text fontWeight="medium">{name}</Text>
           </Stack>
         </Box>
@@ -43,13 +42,16 @@ const CartItem = ({ cartItem }) => {
         w="full"
         mt={{ base: "4", md: "0" }}
         align={{ base: "center", md: "baseline" }}
+        justify="space-between"
         display="flex"
       >
         <Select
-          maxW="65px"
-          focusBorderColor={mode("blue.500", "blue.300")}
+          maxW="64px"
+          focusBorderColor={mode("orange.500", "orange.200")}
           value={qty}
-          onChange={(e) => dispatch(addToCart(id, Number(e.target.value)))}
+          onChange={(e) => {
+            dispatch(addCartItem(id, e.target.value));
+          }}
         >
           {[...Array(stock).keys()].map((x) => (
             <option key={x + 1} value={x + 1}>
@@ -57,8 +59,8 @@ const CartItem = ({ cartItem }) => {
             </option>
           ))}
         </Select>
-        <Text fontWeight="bold">{price}€</Text>
-        <CloseButton />
+        <Text fontWeight="bold">${price}</Text>
+        <CloseButton onClick={() => dispatch(removeCartItem(id))} />
       </Flex>
     </Flex>
   );
